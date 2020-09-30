@@ -1,0 +1,11 @@
+# ignore venv
+/venv/
+
+# PyCharm IDE
+/.idea/
+
+# Resources
+/res/
+
+/.DS_Store/
+
