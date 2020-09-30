@@ -1,0 +1,14 @@
+google-api-python-client
+pycodestyle
+pytest
+pandas
+requests
+tqdm
+rpy2
+wheel
+pause
+cython
+numpy
+
+uritemplate
+setuptools
