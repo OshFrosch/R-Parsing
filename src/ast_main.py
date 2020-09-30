@@ -35,12 +35,11 @@ def main():
             except Exception:
                 continue
 
-            AstTransformerObject = AstTransformer(ast)
-            if len(AstTransformerObject.get_function_nodes()) == 0:
-                # ToDO im zweiten Durchgang
+            ast_transformer = AstTransformer(ast)
+            if len(ast_transformer.get_function_nodes()) == 0:
                 continue
             else:
-                ast_dic_list = AstTransformerObject.function_ast_dic_list()
+                ast_dic_list = ast_transformer.function_ast_dic_list()
                 for function_dic in ast_dic_list:
                     function_name = function_dic['name']
                     function_ast = function_dic['ast_processing']

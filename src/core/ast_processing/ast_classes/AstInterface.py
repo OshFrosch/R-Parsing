@@ -1,6 +1,8 @@
 class AstInterface:
     def __init__(self, df):
         self.ast = df
+        self.length = df.shape[0]
+        self.childrens = {}
 
     def get_df(self):
         return self.ast
@@ -21,10 +23,15 @@ class AstInterface:
         return self.ast['parent'][f'{node_id}']
 
     def get_children(self, node_id):
-        children = []
-        for i in self.ast.index:
-            if self.get_parent(i) == node_id:
-                children.append(i)
+        if node_id in self.childrens.keys():
+            return self.childrens[node_id]
+        else:
+            children = []
+            for i in self.ast.index:
+                i = int(i)
+                if self.get_parent(i) == node_id:
+                    children.append(i)
+            self.childrens[node_id] = children
         return children
 
     def get_path(self, node_start, node_end):

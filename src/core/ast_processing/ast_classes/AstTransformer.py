@@ -12,7 +12,6 @@ class AstTransformer(AstInterface):
                 is_root = super().get_parent(
                     super().get_parent(
                         super().get_parent(node_id))) == 0
-            # TODO better Exception handling
             except Exception:
                 is_root = False
         else:
@@ -34,7 +33,7 @@ class AstTransformer(AstInterface):
         function_name = 'function_name_not_found'
         children = super().get_children(function_root_id)
         for child in children:
-            if super().tokens() == 'expr':
+            if super().token(child) == 'expr':
                 grand_children = super().get_children(child)
                 if len(grand_children) == 1:
                     return super().text(grand_children[0])
@@ -52,8 +51,7 @@ class AstTransformer(AstInterface):
             while not root_node:
                 end += 1
                 end_id = self.ast.index.values[end]
-                root_node = super().is_root_leave(end_id) \
-                            or not end < self.length - 1
+                root_node = super().is_root_leave(end_id) or not end < self.length - 1
             # slicing the ast_processing for the function
             ast_dic = {'ast_processing': self.ast[start:end],
                        'name': function_name}
