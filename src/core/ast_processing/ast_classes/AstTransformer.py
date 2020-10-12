@@ -7,15 +7,14 @@ class AstTransformer(AstInterface):
 
     def is_root_function(self, node_id):
         is_function = super().token(node_id) == 'FUNCTION'
+        is_root = False
         if is_function:
             try:
-                is_root = super().get_parent(
-                    super().get_parent(
-                        super().get_parent(node_id))) == 0
+                is_root = super().get_parent(super().get_parent(
+                            super().get_parent(node_id))) == 0
             except Exception:
                 is_root = False
-        else:
-            is_root = False
+
         return is_function and is_root
 
     def get_function_root(self, node_id):

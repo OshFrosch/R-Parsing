@@ -11,7 +11,7 @@ class MainFileTest(unittest.TestCase):
         self.ast_interface = AstInterface(self.ast)
         self.childs_of_root = [107, 361, 676, 906, 1210, 1503, 1599, 1755, 1917]
         self.root_leave = 107
-        
+
     def test_get_children(self):
         self.assertEqual(len(self.ast_interface.childrens) == 0, True)
         self.assertListEqual(self.ast_interface.get_children(0), self.childs_of_root)
