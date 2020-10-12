@@ -9,3 +9,7 @@
 
 .DS_Store
 
+src/core/ast_processing/__pycache__/
+src/core/ast_processing/ast_classes/__pycache__/
+src/core/util/__pycache__/
+src/core/util/string_utils/__pycache__/

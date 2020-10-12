@@ -1,5 +1,5 @@
 from tqdm import tqdm
-from src.core.ast_processing.creation.create_ast import get_ast_from_file
+from src.core.ast_processing.create_asts.create_ast import get_ast_from_file
 from src.core.ast_processing.ast_classes.AstTransformer import AstTransformer
 from src.core.util.file_management import create_folder_if_necessary
 import os
